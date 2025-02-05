@@ -1,5 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import MainLayout from "../layouts/mainLayout";
+import Store from "../components/store";
+import ShopingCart from "../components/shopingCart";
+import CashRegister from "../components/cashRegister";
+import ManagerPage from "../components/manger";
+import AddProduct from "../components/addProducts";
+import EditProduct from "../components/editProducts";
+import "../css/config.css";
 export default function Router() {
   const router = createBrowserRouter([
     {
@@ -7,25 +14,33 @@ export default function Router() {
       element: <MainLayout />,
       children: [
         {
-          path: "/store",
           element: <Store />,
           index: true,
-          children: [],
         },
         {
-          path: "/shopingCart",
+          path: "shopingCart",
           element: <ShopingCart />,
           children: [],
         },
         {
-          path: "/payment",
+          path: "payment",
           element: <CashRegister />,
           children: [],
         },
         {
-          path: "/manager",
+          path: "manager",
           element: <ManagerPage />,
-          children: [],
+          children: [
+            {
+              element: <AddProduct />,
+              index: true,
+            },
+            {
+              path: "edit",
+              element: <EditProduct />,
+              children: [],
+            },
+          ],
         },
       ],
     },
