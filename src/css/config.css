@@ -1,0 +1,75 @@
+:root {
+  --background-main: #f5e8d7;
+  --background-header: #a8b5a2;
+
+  --text-primary: #3b3b3b;
+  --text-links: #5a7d7c;
+  --text-links-hover: #c47f5a;
+
+  --button-primary-bg: #c47f5a;
+  --button-primary-text: #faf7f2;
+  --button-primary-hover: #d4a373;
+
+  --button-secondary-bg: #d4a373;
+  --button-secondary-text: #3b3b3b;
+  --button-secondary-hover: #5a7d7c;
+
+  --product-background: #faf7f2;
+  --borders: #a8b5a2;
+  --dividers: #a8b5a2;
+  --price-tags: #c47f5a;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--background-main);
+  color: var(--text-primary);
+  font-size: larger;
+  direction: rtl;
+  margin: 0;
+}
+
+header {
+  background-color: var(--background-header);
+}
+
+a {
+  color: var(--text-links);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-links-hover);
+}
+
+button.primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+button.primary:hover {
+  background-color: var(--button-primary-hover);
+}
+
+button.secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+button.secondary:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.menu {
+  background-color: var(--background-header);
+}
+
+.product-card {
+  background-color: var(--product-background);
+  border: var(--borders);
+}
+
+.price-tag {
+  color: var(--price-tags);
+}
