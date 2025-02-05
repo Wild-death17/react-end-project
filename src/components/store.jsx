@@ -1,18 +1,38 @@
+import { products } from "../db/products";
 export default function Store() {
-  let products = [];
   return (
-    <div>
-      <div>
-        {products.map((product) => (
-          <div>
-            <img src={product.image} />
-            <div>{product.code}</div>
-            <div>{product.name}</div>
-            <p>מחיר: {product.price} ש"ח</p>
-            <button>הוסף לעגלה</button>
-          </div>
-        ))}
-      </div>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4,1fr)",
+        gap: "10px",
+        margin: "20px auto",
+        fontSize: "inherit",
+      }}>
+      {products.map((product) => (
+        <div
+          className="product-card"
+          style={{
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderRadius: "5px",
+            padding: "20px",
+          }}>
+          <img src={"./images/" + product.image + ".jpg"} />
+          <div>מקט: {product.code}</div>
+          <div>{product.name}</div>
+          <p className="price-tag">מחיר: {product.price} ₪</p>
+          <button
+            className="primary"
+            style={{
+              width: "90%",
+              aspectRatio: "5/1",
+              fontSize: "inherit",
+            }}>
+            הוסף לעגלה
+          </button>
+        </div>
+      ))}
     </div>
   );
 }
