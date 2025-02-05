@@ -61,6 +61,11 @@ button.secondary:hover {
   background-color: var(--button-secondary-hover);
 }
 
+img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
 .menu {
   background-color: var(--background-header);
 }
