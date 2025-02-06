@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Products } from "../db/products";
 import MainLayout from "../layouts/mainLayout";
 import Store from "../components/store";
 import ShopingCart from "../components/shopingCart";
@@ -7,14 +8,16 @@ import ManagerPage from "../components/manger";
 import AddProduct from "../components/addProducts";
 import EditProduct from "../components/editProducts";
 import "../css/config.css";
+import { useState } from "react";
 export default function Router() {
+  let [products, setProducts] = useState(Products);
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
       children: [
         {
-          element: <Store />,
+          element: <Store products={products} />,
           index: true,
         },
         {

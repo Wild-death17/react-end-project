@@ -1,4 +1,4 @@
-export const products = [
+export const Products = [
     { code: 263674, name: "Access PS5", price: 379, image: "Access PS5" },
     { code: 111800, name: "DualSense Charging Station", price: 129, image: "DualSense Charging Station" },
     { code: 285274, name: "DualSense V2 PS5", price: 279, image: "DualSense V2 PS5" },

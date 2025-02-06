@@ -1,5 +1,4 @@
-import { products } from "../db/products";
-export default function Store() {
+export default function Store({ products }) {
   return (
     <div
       style={{
