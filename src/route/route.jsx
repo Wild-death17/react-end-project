@@ -11,6 +11,10 @@ import "../css/config.css";
 import { useState } from "react";
 export default function Router() {
   let [products, setProducts] = useState(Products);
+  const loadProduct = async ({ params }) => {
+    return products.find((prod) => prod.code == params.code);
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -41,6 +45,7 @@ export default function Router() {
             {
               path: "edit",
               element: <EditProduct />,
+              loader: loadProduct,
               children: [],
             },
           ],
