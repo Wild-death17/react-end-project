@@ -12,7 +12,9 @@ export default function Header() {
           gap: "30px",
           padding: "0 20px",
         }}>
-        <Link to="manager">כניסה למנהל</Link>
+        <div>
+          <Link to="manager">כניסה למנהל</Link>
+        </div>
         <Link to="/">דף הבית</Link>
         <Link to="shopingCart">עגלת קניות</Link>
       </nav>
