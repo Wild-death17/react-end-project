@@ -11,6 +11,21 @@ import "../css/config.css";
 import { useState } from "react";
 export default function Router() {
   let [products, setProducts] = useState(Products);
+
+  const addProduct = async ({ request }) => {
+    let data = await Object.fromEntries(await request.formData());
+    if (data) {
+      setProducts((prevProd) => [...prevProd, data]);
+    }
+  };
+  const editProduct = async ({ request }) => {
+    let data = await Object.fromEntries(await request.formData());
+    setProducts(
+      products.map((prod) => {
+        return prod.code == data.code ? data : prod;
+      })
+    );
+  };
   const loadProduct = async ({ params }) => {
     return products.find((prod) => prod.code == params.code);
   };
@@ -40,12 +55,14 @@ export default function Router() {
           children: [
             {
               element: <AddProduct />,
+              action: addProduct,
               index: true,
             },
             {
-              path: "edit",
+              path: "edit/:code?",
               element: <EditProduct />,
               loader: loadProduct,
+              action: editProduct,
               children: [],
             },
           ],
