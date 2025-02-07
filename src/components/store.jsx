@@ -8,7 +8,7 @@ export default function Store({ products }) {
         margin: "20px auto",
         fontSize: "inherit",
       }}>
-      {products.map((product) => (
+      {products.map((product, index) => (
         <div
           className="product-card"
           style={{
@@ -16,7 +16,8 @@ export default function Store({ products }) {
             borderStyle: "solid",
             borderRadius: "5px",
             padding: "20px",
-          }}>
+          }}
+          key={index}>
           <img src={"./images/" + product.image + ".jpg"} />
           <div>מקט: {product.code}</div>
           <div>{product.name}</div>

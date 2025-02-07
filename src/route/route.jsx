@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Products } from "../db/products";
+import Products from "../db/products";
 import MainLayout from "../layouts/mainLayout";
 import Store from "../components/store";
 import ShopingCart from "../components/shopingCart";
