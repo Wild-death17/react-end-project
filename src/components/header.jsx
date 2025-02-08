@@ -13,10 +13,10 @@ export default function Header() {
           padding: "0 20px",
         }}>
         <div>
-          <Link to="manager">כניסה למנהל</Link>
+          <Link to="manager">כניסה למנהל 🧑🏻‍💼</Link>
         </div>
-        <Link to="/">דף הבית</Link>
-        <Link to="shopingCart">עגלת קניות</Link>
+        <Link to="/">דף הבית🏠</Link>
+        <Link to="shopingCart">עגלת קניות🛒</Link>
       </nav>
     </header>
   );
