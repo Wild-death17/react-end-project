@@ -19,9 +19,9 @@ export default function Store({ products }) {
           }}
           key={index}>
           <img src={"./images/" + product.image + ".jpg"} />
+          <p>{product.name}</p>
           <div>מקט: {product.code}</div>
-          <div>{product.name}</div>
-          <p className="price-tag">מחיר: {product.price} ₪</p>
+          <div className="price-tag">מחיר: {product.price} ₪</div>
           <button
             className="primary"
             style={{
