@@ -23,7 +23,6 @@ export default function Store({ products }) {
           <div>מקט: {product.code}</div>
           <div className="price-tag">מחיר: {product.price} ₪</div>
           <button
-            className="primary"
             style={{
               width: "90%",
               aspectRatio: "5/1",

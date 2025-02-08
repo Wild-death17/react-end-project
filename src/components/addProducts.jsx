@@ -37,9 +37,7 @@ export default function AddProduct() {
         type="text"
         required
       />
-      <button style={formstyle} className="primary">
-        הוסף
-      </button>
+      <button style={formstyle}>הוסף</button>
     </Form>
   );
 }

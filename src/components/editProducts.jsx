@@ -55,9 +55,7 @@ export default function EditProduct() {
           name="price"
           type="text"
         />
-        <button style={formstyle} className="primary">
-          ערוך
-        </button>
+        <button style={formstyle}>ערוך</button>
       </Form>
     </div>
   );

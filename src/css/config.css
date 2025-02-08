@@ -6,13 +6,9 @@
   --text-links: #5a7d7c;
   --text-links-hover: #c47f5a;
 
-  --button-primary-bg: #c47f5a;
-  --button-primary-text: #faf7f2;
-  --button-primary-hover: #d4a373;
-
-  --button-secondary-bg: #d4a373;
-  --button-secondary-text: #3b3b3b;
-  --button-secondary-hover: #5a7d7c;
+  --button-bg: #c47f5a;
+  --button-text: #faf7f2;
+  --button-hover: #d4a373;
 
   --product-background: #faf7f2;
   --borders: #a8b5a2;
@@ -43,22 +39,13 @@ a:hover {
   color: var(--text-links-hover);
 }
 
-button.primary {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
 }
 
-button.primary:hover {
-  background-color: var(--button-primary-hover);
-}
-
-button.secondary {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
-}
-
-button.secondary:hover {
-  background-color: var(--button-secondary-hover);
+button:hover {
+  background-color: var(--button-hover);
 }
 
 img {
