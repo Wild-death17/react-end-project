@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/cartContext";
 export default function ShopingCart() {
-  let cart = [];
+  let [cart, addToCart, removeFromCart] = useCart();
   return (
     <>
       {cart.length > 0 ? (
