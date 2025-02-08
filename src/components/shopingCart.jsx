@@ -5,8 +5,33 @@ export default function ShopingCart() {
     <>
       {cart.length > 0 ? (
         <table>
-          <thead></thead>
-          <tbody></tbody>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item) => (
+              <tr key={item.code}>
+                <td>{item.code}</td>
+                <td>{item.name}</td>
+                <td>₪{item.price}</td>
+                <td>{item.quantity}</td>
+                <td>
+                  <div>
+                    <button onClick={() => {}}>-</button>
+                    <span>{item.quantity}</span>
+
+                    <button onClick={() => {}}>+</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : (
         <h1> 🛒 העגלה שלך ריקה!</h1>
