@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/cartContext";
 export default function ShopingCart() {
-  let { cart, addToCart, removeFromCart } = useCart();
+  const { cart, addToCart, removeFromCart } = useCart();
 
   return (
     <>
@@ -25,10 +25,19 @@ export default function ShopingCart() {
                 <td>{item.quantity}</td>
                 <td>
                   <div>
-                    <button onClick={() => {}}>-</button>
+                    <button
+                      onClick={() => {
+                        removeFromCart(item.code);
+                      }}>
+                      -
+                    </button>
                     <span>{item.quantity}</span>
-
-                    <button onClick={() => {}}>+</button>
+                    <button
+                      onClick={() => {
+                        addToCart(item);
+                      }}>
+                      +
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -40,7 +49,10 @@ export default function ShopingCart() {
       )}
       <hr />
       <div>
-        <h3>סהכ: {}</h3>
+        <h3>
+          סהכ:
+          {cart.reduce((sum, item) => (sum += item.price * item.quantity), 0)} ₪
+        </h3>
         <Link to="/payment">לתשלום</Link>
       </div>
     </>

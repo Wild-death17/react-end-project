@@ -1,4 +1,6 @@
+import { useCart } from "../contexts/cartContext";
 export default function Store({ products }) {
+  const { addToCart } = useCart();
   return (
     <div
       style={{
@@ -27,6 +29,9 @@ export default function Store({ products }) {
               width: "90%",
               aspectRatio: "5/1",
               fontSize: "inherit",
+            }}
+            onClick={() => {
+              addToCart(product);
             }}>
             הוסף לעגלה
           </button>
