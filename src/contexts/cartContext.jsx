@@ -28,9 +28,12 @@ export function CartProvider({ children }) {
         .filter((item) => item.quantity > 0);
     });
   };
-
+  const cartTotal = () => {
+    return cart.reduce((sum, item) => (sum += item.price * item.quantity), 0);
+  };
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, cartTotal }}>
       {children}
     </CartContext.Provider>
   );
