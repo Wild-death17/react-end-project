@@ -33,7 +33,7 @@ export default function AddProduct() {
         className="form-tag"
         placeholder="price"
         name="price"
-        type="text"
+        type="number"
         required
       />
       <button className="form-tag">הוסף</button>

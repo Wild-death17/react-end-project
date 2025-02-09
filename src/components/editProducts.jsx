@@ -51,7 +51,7 @@ export default function EditProduct() {
           defaultValue={product.price}
           placeholder="מחיר המוצר"
           name="price"
-          type="text"
+          type="number"
         />
         <button className="form-tag">ערוך</button>
       </Form>
