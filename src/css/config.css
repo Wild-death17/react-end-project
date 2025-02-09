@@ -69,3 +69,7 @@ hr {
 .price-tag {
   color: var(--price-tags);
 }
+.form-tag {
+  padding: 20px;
+  font-size: larger;
+}

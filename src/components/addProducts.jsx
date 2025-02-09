@@ -1,6 +1,5 @@
 import { Form } from "react-router-dom";
 export default function AddProduct() {
-  const formstyle = { padding: "20px", fontSize: "larger" };
   return (
     <Form
       style={{
@@ -10,34 +9,34 @@ export default function AddProduct() {
       }}
       method="POST">
       <input
-        style={formstyle}
+        className="form-tag"
         placeholder="code"
         name="code"
         type="text"
         required
       />
       <input
-        style={formstyle}
+        className="form-tag"
         placeholder="name"
         name="name"
         type="text"
         required
       />
       <input
-        style={formstyle}
+        className="form-tag"
         placeholder="image"
         name="image"
         type="text"
         required
       />
       <input
-        style={formstyle}
+        className="form-tag"
         placeholder="price"
         name="price"
         type="text"
         required
       />
-      <button style={formstyle}>הוסף</button>
+      <button className="form-tag">הוסף</button>
     </Form>
   );
 }
