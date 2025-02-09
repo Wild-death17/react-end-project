@@ -1,6 +1,6 @@
 import { Form, useLoaderData } from "react-router-dom";
 export default function EditProduct() {
-  let product = useLoaderData() || {};
+  const product = useLoaderData() || {};
 
   return (
     <div
@@ -51,7 +51,7 @@ export default function EditProduct() {
           defaultValue={product.price}
           placeholder="מחיר המוצר"
           name="price"
-          type="text"
+          type="number"
         />
         <button className="form-tag">ערוך</button>
       </Form>

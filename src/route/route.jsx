@@ -11,7 +11,7 @@ import "../css/config.css";
 import { useState } from "react";
 import { CartProvider } from "../contexts/cartContext";
 export default function Router() {
-  let [products, setProducts] = useState(Products);
+  const [products, setProducts] = useState(Products);
 
   const addProduct = async ({ request }) => {
     let data = await Object.fromEntries(await request.formData());
