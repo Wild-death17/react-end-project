@@ -1,7 +1,5 @@
 import { Form, useLoaderData } from "react-router-dom";
 export default function EditProduct() {
-  const formstyle = { padding: "20px", fontSize: "larger" };
-
   let product = useLoaderData() || {};
 
   return (
@@ -13,13 +11,13 @@ export default function EditProduct() {
       }}>
       <div style={{ margin: "30px" }}>
         <input
-          style={formstyle}
+          className="form-tag"
           placeholder="קוד המוצר"
           name="code"
           type="search"
         />
         <button
-          style={formstyle}
+          className="form-tag"
           onClick={(e) => {
             /* reroute to /edit/:code */
           }}>
@@ -35,27 +33,27 @@ export default function EditProduct() {
         method="POST">
         <input name="code" type="hidden" defaultValue={product.code} />
         <input
-          style={formstyle}
+          className="form-tag"
           defaultValue={product.name}
           placeholder="שם המוצר"
           name="name"
           type="text"
         />
         <input
-          style={formstyle}
+          className="form-tag"
           defaultValue={product.image}
           placeholder="תמונת המוצר"
           name="image"
           type="text"
         />
         <input
-          style={formstyle}
+          className="form-tag"
           defaultValue={product.price}
           placeholder="מחיר המוצר"
           name="price"
           type="text"
         />
-        <button style={formstyle}>ערוך</button>
+        <button className="form-tag">ערוך</button>
       </Form>
     </div>
   );
