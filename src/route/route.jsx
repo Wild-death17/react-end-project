@@ -10,7 +10,7 @@ import EditProduct from "../components/editProducts";
 import "../css/config.css";
 import { useState } from "react";
 export default function Router() {
-  let [products, setProducts] = useState(Products);
+  const [products, setProducts] = useState(Products);
 
   const addProduct = async ({ request }) => {
     let data = await Object.fromEntries(await request.formData());

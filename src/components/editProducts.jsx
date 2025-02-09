@@ -1,6 +1,6 @@
 import { Form, useLoaderData } from "react-router-dom";
 export default function EditProduct() {
-  let product = useLoaderData() || {};
+  const product = useLoaderData() || {};
 
   return (
     <div
