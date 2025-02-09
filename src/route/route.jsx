@@ -9,6 +9,7 @@ import AddProduct from "../components/addProducts";
 import EditProduct from "../components/editProducts";
 import "../css/config.css";
 import { useState } from "react";
+import { CartProvider } from "../contexts/cartContext";
 export default function Router() {
   const [products, setProducts] = useState(Products);
 
@@ -71,5 +72,9 @@ export default function Router() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <RouterProvider router={router} />{" "}
+    </CartProvider>
+  );
 }
