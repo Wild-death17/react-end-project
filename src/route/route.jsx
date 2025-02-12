@@ -9,9 +9,10 @@ import AddProduct from "../components/addProducts";
 import EditProduct from "../components/editProducts";
 import "../css/config.css";
 import { useState } from "react";
-import { CartProvider } from "../contexts/cartContext";
+import { useCart } from "../contexts/cartContext";
 export default function Router() {
   const [products, setProducts] = useState(Products);
+  const { editItemInCart } = useCart();
 
   const addProduct = async ({ request }) => {
     let data = await Object.fromEntries(await request.formData());
@@ -26,6 +27,7 @@ export default function Router() {
         return prod.code == data.code ? data : prod;
       })
     );
+    editItemInCart(data);
   };
   const loadProduct = async ({ params }) => {
     return products.find((prod) => prod.code == params.code);
@@ -72,9 +74,5 @@ export default function Router() {
     },
   ]);
 
-  return (
-    <CartProvider>
-      <RouterProvider router={router} />{" "}
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
