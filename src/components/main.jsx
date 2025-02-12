@@ -1,5 +1,10 @@
 import Router from "../route/route";
+import { CartProvider } from "../contexts/cartContext";
 
 export default function Main() {
-  return <Router />;
+  return (
+    <CartProvider>
+      <Router />
+    </CartProvider>
+  );
 }
