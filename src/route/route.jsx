@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useCart } from "../contexts/cartContext";
 export default function Router() {
   const [products, setProducts] = useState(Products);
-  const { editItemInCart } = useCart();
+  const { cart, cartTotal, editItemInCart } = useCart();
 
   const addProduct = async ({ request }) => {
     let data = await Object.fromEntries(await request.formData());
@@ -32,7 +32,14 @@ export default function Router() {
   const loadProduct = async ({ params }) => {
     return products.find((prod) => prod.code == params.code);
   };
-
+  const submitOrder = async ({ request }) => {
+    let data = await Object.fromEntries(await request.formData());
+    data.total = cartTotal();
+    data.items = cart.map((item) => {
+      return { code: item.code, quantity: item.quantity };
+    });
+    console.log(data);
+  };
   const router = createBrowserRouter([
     {
       path: "/",
@@ -50,6 +57,7 @@ export default function Router() {
         {
           path: "payment",
           element: <CashRegister />,
+          action: submitOrder,
           children: [],
         },
         {
