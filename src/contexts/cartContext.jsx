@@ -5,6 +5,63 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
+  const displayCart = (flag) => {
+    return cart.length > 0 ? (
+      <table>
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((item) => (
+            <tr
+              style={{
+                textAlign: "center",
+              }}
+              key={item.code}>
+              <td>
+                <img
+                  style={{
+                    width: "100px",
+                  }}
+                  src={"./images/" + item.image + ".jpg"}
+                />
+              </td>
+              <td>{item.name}</td>
+              <td>₪{item.price}</td>
+              <td>
+                {flag ? (
+                  <div>
+                    <button
+                      onClick={() => {
+                        removeFromCart(item.code);
+                      }}>
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => {
+                        addToCart(item);
+                      }}>
+                      +
+                    </button>
+                  </div>
+                ) : (
+                  item.quantity
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <h1> 🛒 העגלה שלך ריקה!</h1>
+    );
+  };
   const addToCart = (product) => {
     setCart((prevCart) => {
       if (prevCart.length == 0) return [{ ...product, quantity: 1 }];
@@ -43,7 +100,14 @@ export function CartProvider({ children }) {
   };
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, editItemInCart, cartTotal }}>
+      value={{
+        cart,
+        displayCart,
+        addToCart,
+        removeFromCart,
+        editItemInCart,
+        cartTotal,
+      }}>
       {children}
     </CartContext.Provider>
   );
