@@ -4,7 +4,12 @@ export default function CashRegister() {
   const { displayCart, cartTotal } = useCart();
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
       {displayCart()}
       <hr />
       <h3>
