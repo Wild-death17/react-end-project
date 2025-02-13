@@ -9,20 +9,29 @@ export default function ShopingCart() {
         <table>
           <thead>
             <tr>
-              <th>Code</th>
+              <th>image</th>
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
-              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
             {cart.map((item) => (
-              <tr key={item.code}>
-                <td>{item.code}</td>
+              <tr
+                style={{
+                  textAlign: "center",
+                }}
+                key={item.code}>
+                <td>
+                  <img
+                    style={{
+                      width: "100px",
+                    }}
+                    src={"./images/" + item.image + ".jpg"}
+                  />
+                </td>
                 <td>{item.name}</td>
                 <td>₪{item.price}</td>
-                <td>{item.quantity}</td>
                 <td>
                   <div>
                     <button
@@ -48,7 +57,12 @@ export default function ShopingCart() {
         <h1> 🛒 העגלה שלך ריקה!</h1>
       )}
       <hr />
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}>
         <h3>
           סהכ:
           {cartTotal()} ₪
