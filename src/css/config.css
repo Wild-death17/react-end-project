@@ -50,6 +50,11 @@ hr {
   width: 100%;
   border: 1px solid var(--dividers);
 }
+form {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
 .side-bar {
   background-color: var(--background-header);
 }

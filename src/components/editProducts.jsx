@@ -24,13 +24,7 @@ export default function EditProduct() {
           חפש מוצר
         </button>
       </div>
-      <Form
-        style={{
-          display: "flex",
-          margin: "auto",
-          flexDirection: "column",
-        }}
-        method="POST">
+      <Form method="POST">
         <input name="code" type="hidden" defaultValue={product.code} />
         <input
           className="form-tag"

@@ -1,13 +1,7 @@
 import { Form } from "react-router-dom";
 export default function AddProduct() {
   return (
-    <Form
-      style={{
-        display: "flex",
-        margin: "auto",
-        flexDirection: "column",
-      }}
-      method="POST">
+    <Form method="POST">
       <input
         className="form-tag"
         placeholder="code"
