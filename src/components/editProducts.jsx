@@ -1,7 +1,23 @@
+import { useEffect, useState } from "react";
 import { Form, useLoaderData } from "react-router-dom";
-export default function EditProduct() {
-  const product = useLoaderData() || {};
+export default function EditProduct({ products }) {
+  const [currentProduct, setCurrentProduct] = useState({});
+  const [code, setCode] = useState("");
+  const loadedData = useLoaderData();
 
+  useEffect(() => {
+    if (loadedData) setCurrentProduct(loadedData);
+  }, [loadedData]);
+
+  const handleChanges = (e) => {
+    setCurrentProduct((prevProduct) => {
+      return { ...prevProduct, [e.target.name]: e.target.value };
+    });
+  };
+  const handleSearch = () => {
+    let foundProduct = products.find((prod) => prod.code == code);
+    if (foundProduct) setCurrentProduct(foundProduct);
+  };
   return (
     <div
       style={{
@@ -12,37 +28,46 @@ export default function EditProduct() {
       <div style={{ margin: "30px" }}>
         <input
           className="form-tag"
+          value={code}
+          onChange={(e) => {
+            setCode(e.target.value);
+          }}
           placeholder="קוד המוצר"
           name="code"
           type="search"
         />
-        <button
-          className="form-tag"
-          onClick={(e) => {
-            /* reroute to /edit/:code */
-          }}>
+        <button className="form-tag" onClick={handleSearch}>
           חפש מוצר
         </button>
       </div>
       <Form method="POST">
-        <input name="code" type="hidden" defaultValue={product.code} />
         <input
           className="form-tag"
-          defaultValue={product.name}
+          value={currentProduct.code}
+          placeholder="קוד המוצר"
+          name="code"
+          type="disabled"
+        />
+        <input
+          className="form-tag"
+          value={currentProduct.name}
+          onChange={handleChanges}
           placeholder="שם המוצר"
           name="name"
           type="text"
         />
         <input
           className="form-tag"
-          defaultValue={product.image}
+          value={currentProduct.image}
+          onChange={handleChanges}
           placeholder="תמונת המוצר"
           name="image"
           type="text"
         />
         <input
           className="form-tag"
-          defaultValue={product.price}
+          value={currentProduct.price}
+          onChange={handleChanges}
           placeholder="מחיר המוצר"
           name="price"
           type="number"

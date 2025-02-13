@@ -71,7 +71,7 @@ export default function Router() {
             },
             {
               path: "edit/:code?",
-              element: <EditProduct />,
+              element: <EditProduct products={products} />,
               loader: loadProduct,
               action: editProduct,
               children: [],
